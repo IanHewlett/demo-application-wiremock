@@ -1,0 +1,4 @@
+.idea
+inspec.lock
+tfvars.json
+inputs.yaml

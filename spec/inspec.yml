@@ -1,0 +1,5 @@
+name: wiremock
+title: InSpec Profile for Core Services CP
+license: MIT
+version: 0.1.3
+inspec_version: '~> 6'

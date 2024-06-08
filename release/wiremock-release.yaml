@@ -1,0 +1,28 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: wiremock
+  namespace: wiremock
+spec:
+  releaseName: wiremock-server
+  chart:
+    spec:
+      chart: wiremock
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: wiremock
+        namespace: wiremock
+#      verify:
+#        provider: cosign
+#        secretRef:
+#          name: cosign-signing-key
+  interval: 1m0s
+  install:
+    remediation:
+      retries: 3
+  values:
+    imagePullSecrets:
+      - name: registry-credential
